@@ -1,0 +1,3 @@
+iverilog -o {outputfile}.vvp {testbench}.v
+vvp .vvp
+gtkwave .vcd
