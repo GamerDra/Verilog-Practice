@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import scrolledtext, messagebox, filedialog
 from ttkthemes import ThemedTk  # 
 from tkinter import ttk  # 
-
+from test import generate_verilog_testbench
 # validate inputs
 def validate_inputs():
     if not module_name_field.get().strip():
@@ -22,15 +22,8 @@ def on_generate():
         output_names = output_field.get().split(',')
         module_name = module_name_field.get()
         
-        # Example of generated testbench code (Replace with your own function)
-        testbench_code = f"module {module_name}_tb;\n" + "\n".join([f"reg {inp};" for inp in input_names]) + \
-                         "\n" + "\n".join([f"wire {out};" for out in output_names]) + \
-                         f"\n\n// Instantiate the {module_name} module\n" \
-                         f"{module_name} uut (\n" + \
-                         ",\n".join([f".{inp}({inp})" for inp in input_names]) + \
-                         ",\n" + \
-                         ",\n".join([f".{out}({out})" for out in output_names]) + ");\n"
-        
+
+        testbench_code = generate_verilog_testbench(input_names, output_names, module_name)
         # generated testbench in the text box
         result_box.config(state=tk.NORMAL)
         result_box.delete(1.0, tk.END)
@@ -46,15 +39,15 @@ def highlight_syntax(code):
     keywords = ["module", "reg", "wire", "initial", "begin", "end", "$monitor", "$dumpfile", "$dumpvars", "$finish"]
     
     result_box.config(state=tk.NORMAL)
-    for keyword in keywords:
-        start = 1.0
-        while True:
-            pos = result_box.search(r"\b" + keyword + r"\b", start, stopindex=tk.END, regexp=True)
-            if not pos:
-                break
-            end = f"{pos}+{len(keyword)}c"
-            result_box.tag_add("keyword", pos, end)
-            start = end
+    # for keyword in keywords:
+    #     start = 1.0
+    #     while True:
+    #         pos = result_box.search(r"\b" + keyword + r"\b", start, stopindex=tk.END, regexp=True)
+    #         if not pos:
+    #             break
+    #         end = f"{pos}+{len(keyword)}c"
+    #         result_box.tag_add("keyword", pos, end)
+    #         start = end
     
     start = 1.0
     while True:
