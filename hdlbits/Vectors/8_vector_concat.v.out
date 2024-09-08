@@ -1,0 +1,34 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000022385816c30 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "in";
+    .port_info 1 /OUTPUT 32 "out";
+v00000223857e34b0_0 .net *"_ivl_1", 0 0, L_00000223857cd770;  1 drivers
+v00000223857e30e0_0 .net *"_ivl_2", 23 0, L_00000223857cdc20;  1 drivers
+o0000022385816e28 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000223857cd630_0 .net "in", 7 0, o0000022385816e28;  0 drivers
+v00000223857cd6d0_0 .net "out", 31 0, L_00000223857cdd90;  1 drivers
+L_00000223857cd770 .part o0000022385816e28, 7, 1;
+LS_00000223857cdc20_0_0 .concat [ 1 1 1 1], L_00000223857cd770, L_00000223857cd770, L_00000223857cd770, L_00000223857cd770;
+LS_00000223857cdc20_0_4 .concat [ 1 1 1 1], L_00000223857cd770, L_00000223857cd770, L_00000223857cd770, L_00000223857cd770;
+LS_00000223857cdc20_0_8 .concat [ 1 1 1 1], L_00000223857cd770, L_00000223857cd770, L_00000223857cd770, L_00000223857cd770;
+LS_00000223857cdc20_0_12 .concat [ 1 1 1 1], L_00000223857cd770, L_00000223857cd770, L_00000223857cd770, L_00000223857cd770;
+LS_00000223857cdc20_0_16 .concat [ 1 1 1 1], L_00000223857cd770, L_00000223857cd770, L_00000223857cd770, L_00000223857cd770;
+LS_00000223857cdc20_0_20 .concat [ 1 1 1 1], L_00000223857cd770, L_00000223857cd770, L_00000223857cd770, L_00000223857cd770;
+LS_00000223857cdc20_1_0 .concat [ 4 4 4 4], LS_00000223857cdc20_0_0, LS_00000223857cdc20_0_4, LS_00000223857cdc20_0_8, LS_00000223857cdc20_0_12;
+LS_00000223857cdc20_1_4 .concat [ 4 4 0 0], LS_00000223857cdc20_0_16, LS_00000223857cdc20_0_20;
+L_00000223857cdc20 .concat [ 16 8 0 0], LS_00000223857cdc20_1_0, LS_00000223857cdc20_1_4;
+L_00000223857cdd90 .concat [ 8 24 0 0], o0000022385816e28, L_00000223857cdc20;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "8_vector_concat.v";

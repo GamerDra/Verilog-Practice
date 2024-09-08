@@ -1,6 +1,6 @@
 import itertools
 
-def generate_verilog_testbench(input_names, output_names, module_name):
+def generate_verilog_testbench(input_names, output_names, module_name, time_delay=10):
     num_inputs = len(input_names)
     
     # (2^n combinations for n inputs)
@@ -42,7 +42,7 @@ def generate_verilog_testbench(input_names, output_names, module_name):
 
     for comb in input_combinations:
         assignments = " ".join([f"{name} = {val};" for name, val in zip(input_names, comb)])
-        testbench.append(f"\t{assignments} #10;")
+        testbench.append(f"\t{assignments} #{time_delay};")
     
     testbench.append("\n\t$finish;\nend\nendmodule")
 

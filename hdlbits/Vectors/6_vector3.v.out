@@ -1,0 +1,52 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002359a762ce0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 5 "a";
+    .port_info 1 /INPUT 5 "b";
+    .port_info 2 /INPUT 5 "c";
+    .port_info 3 /INPUT 5 "d";
+    .port_info 4 /INPUT 5 "e";
+    .port_info 5 /INPUT 5 "f";
+    .port_info 6 /OUTPUT 8 "w";
+    .port_info 7 /OUTPUT 8 "x";
+    .port_info 8 /OUTPUT 8 "y";
+    .port_info 9 /OUTPUT 8 "z";
+L_000002359a7dfc48 .functor BUFT 1, C4<11>, C4<0>, C4<0>, C4<0>;
+v000002359a7634b0_0 .net/2u *"_ivl_5", 1 0, L_000002359a7dfc48;  1 drivers
+v000002359a762f20_0 .net *"_ivl_7", 31 0, L_000002359a792210;  1 drivers
+o000002359a797038 .functor BUFZ 5, C4<zzzzz>; HiZ drive
+v000002359a762fc0_0 .net "a", 4 0, o000002359a797038;  0 drivers
+o000002359a797068 .functor BUFZ 5, C4<zzzzz>; HiZ drive
+v000002359a763060_0 .net "b", 4 0, o000002359a797068;  0 drivers
+o000002359a797098 .functor BUFZ 5, C4<zzzzz>; HiZ drive
+v000002359a74b8e0_0 .net "c", 4 0, o000002359a797098;  0 drivers
+o000002359a7970c8 .functor BUFZ 5, C4<zzzzz>; HiZ drive
+v000002359a74b980_0 .net "d", 4 0, o000002359a7970c8;  0 drivers
+o000002359a7970f8 .functor BUFZ 5, C4<zzzzz>; HiZ drive
+v000002359a74ba20_0 .net "e", 4 0, o000002359a7970f8;  0 drivers
+o000002359a797128 .functor BUFZ 5, C4<zzzzz>; HiZ drive
+v000002359a74bac0_0 .net "f", 4 0, o000002359a797128;  0 drivers
+v000002359a74bb60_0 .net "w", 7 0, L_000002359a791900;  1 drivers
+v000002359a74bc90_0 .net "x", 7 0, L_000002359a792850;  1 drivers
+v000002359a74bd30_0 .net "y", 7 0, L_000002359a792710;  1 drivers
+v000002359a791860_0 .net "z", 7 0, L_000002359a792030;  1 drivers
+L_000002359a791900 .part L_000002359a792210, 24, 8;
+L_000002359a792850 .part L_000002359a792210, 16, 8;
+L_000002359a792710 .part L_000002359a792210, 8, 8;
+L_000002359a792030 .part L_000002359a792210, 0, 8;
+LS_000002359a792210_0_0 .concat [ 2 5 5 5], L_000002359a7dfc48, o000002359a797128, o000002359a7970f8, o000002359a7970c8;
+LS_000002359a792210_0_4 .concat [ 5 5 5 0], o000002359a797098, o000002359a797068, o000002359a797038;
+L_000002359a792210 .concat [ 17 15 0 0], LS_000002359a792210_0_0, LS_000002359a792210_0_4;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "6_vector3.v";

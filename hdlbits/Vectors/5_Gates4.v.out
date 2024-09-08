@@ -1,0 +1,40 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000267df4b2ce0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /OUTPUT 1 "out_and";
+    .port_info 2 /OUTPUT 1 "out_or";
+    .port_info 3 /OUTPUT 1 "out_xor";
+L_00000267df5de3b0 .functor AND 1, L_00000267df4e1780, L_00000267df4e1b40, C4<1>, C4<1>;
+L_00000267df5de420 .functor AND 1, L_00000267df5de3b0, L_00000267df4e1d20, C4<1>, C4<1>;
+L_00000267df5de520 .functor AND 1, L_00000267df5de420, L_00000267df4e1be0, C4<1>, C4<1>;
+v00000267df4b34b0_0 .net *"_ivl_1", 0 0, L_00000267df4e1780;  1 drivers
+v00000267df4b36d0_0 .net *"_ivl_11", 0 0, L_00000267df4e1be0;  1 drivers
+v00000267df4b2e70_0 .net *"_ivl_3", 0 0, L_00000267df4e1b40;  1 drivers
+v00000267df4b2f10_0 .net *"_ivl_4", 0 0, L_00000267df5de3b0;  1 drivers
+v00000267df4b2fb0_0 .net *"_ivl_7", 0 0, L_00000267df4e1d20;  1 drivers
+v00000267df4b3050_0 .net *"_ivl_8", 0 0, L_00000267df5de420;  1 drivers
+o00000267df4e70f8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v00000267df5de130_0 .net "in", 3 0, o00000267df4e70f8;  0 drivers
+v00000267df5de1d0_0 .net "out_and", 0 0, L_00000267df5de520;  1 drivers
+o00000267df4e7158 .functor BUFZ 1, C4<z>; HiZ drive
+v00000267df5de270_0 .net "out_or", 0 0, o00000267df4e7158;  0 drivers
+o00000267df4e7188 .functor BUFZ 1, C4<z>; HiZ drive
+v00000267df5de310_0 .net "out_xor", 0 0, o00000267df4e7188;  0 drivers
+L_00000267df4e1780 .part o00000267df4e70f8, 3, 1;
+L_00000267df4e1b40 .part o00000267df4e70f8, 2, 1;
+L_00000267df4e1d20 .part o00000267df4e70f8, 1, 1;
+L_00000267df4e1be0 .part o00000267df4e70f8, 0, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "5_Gates4.v";

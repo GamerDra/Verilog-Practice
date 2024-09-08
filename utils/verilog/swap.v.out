@@ -1,0 +1,30 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000251d7562ce0 .scope module, "swap_vector" "swap_vector" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "in_1";
+    .port_info 1 /INPUT 8 "in_2";
+    .port_info 2 /OUTPUT 8 "out_1";
+    .port_info 3 /OUTPUT 8 "out_2";
+v00000251d75634b0_0 .net *"_ivl_3", 15 0, L_00000251d76ce800;  1 drivers
+o00000251d7597008 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000251d7562e70_0 .net "in_1", 7 0, o00000251d7597008;  0 drivers
+o00000251d7597038 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000251d7562f10_0 .net "in_2", 7 0, o00000251d7597038;  0 drivers
+v00000251d7562fb0_0 .net "out_1", 7 0, L_00000251d76cdeb0;  1 drivers
+v00000251d7563050_0 .net "out_2", 7 0, L_00000251d76cdf50;  1 drivers
+L_00000251d76cdeb0 .part L_00000251d76ce800, 8, 8;
+L_00000251d76cdf50 .part L_00000251d76ce800, 0, 8;
+L_00000251d76ce800 .concat [ 8 8 0 0], o00000251d7597038, o00000251d7597008;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "swap.v";
