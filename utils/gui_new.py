@@ -3,7 +3,7 @@ from tkinter import scrolledtext, messagebox, filedialog
 from ttkthemes import ThemedTk  # 
 from tkinter import ttk  # 
 from test import generate_verilog_testbench
-# validate inputs
+
 def validate_inputs():
     if not module_name_field.get().strip():
         messagebox.showwarning("Invalid Input", "Module name cannot be empty.")
@@ -24,14 +24,14 @@ def on_generate():
         
 
         testbench_code = generate_verilog_testbench(input_names, output_names, module_name)
-        # generated testbench in the text box
+        
         result_box.config(state=tk.NORMAL)
         result_box.delete(1.0, tk.END)
         result_box.insert(tk.END, testbench_code)
         highlight_syntax(testbench_code)
         result_box.config(state=tk.DISABLED)
 
-# highlight syntax 
+ 
 def highlight_syntax(code):
     result_box.tag_remove("keyword", 1.0, tk.END)
     result_box.tag_remove("comment", 1.0, tk.END)
@@ -39,16 +39,6 @@ def highlight_syntax(code):
     keywords = ["module", "reg", "wire", "initial", "begin", "end", "$monitor", "$dumpfile", "$dumpvars", "$finish"]
     
     result_box.config(state=tk.NORMAL)
-    # for keyword in keywords:
-    #     start = 1.0
-    #     while True:
-    #         pos = result_box.search(r"\b" + keyword + r"\b", start, stopindex=tk.END, regexp=True)
-    #         if not pos:
-    #             break
-    #         end = f"{pos}+{len(keyword)}c"
-    #         result_box.tag_add("keyword", pos, end)
-    #         start = end
-    
     start = 1.0
     while True:
         pos = result_box.search("//", start, stopindex=tk.END)
