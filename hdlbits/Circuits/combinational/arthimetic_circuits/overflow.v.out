@@ -1,0 +1,54 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d446062ce0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /OUTPUT 8 "s";
+    .port_info 3 /OUTPUT 1 "overflow";
+L_000001d446063c50 .functor NOT 1, L_000001d446093fc0, C4<0>, C4<0>, C4<0>;
+L_000001d44604ef40 .functor NOT 1, L_000001d446093e80, C4<0>, C4<0>, C4<0>;
+L_000001d4460630c0 .functor AND 1, L_000001d446063c50, L_000001d44604ef40, C4<1>, C4<1>;
+L_000001d446063130 .functor AND 1, L_000001d4460630c0, L_000001d446093d40, C4<1>, C4<1>;
+L_000001d4460d9c20 .functor AND 1, L_000001d446093de0, L_000001d446093200, C4<1>, C4<1>;
+L_000001d4460d9c90 .functor NOT 1, L_000001d4460932a0, C4<0>, C4<0>, C4<0>;
+L_000001d4460d9d00 .functor AND 1, L_000001d4460d9c20, L_000001d4460d9c90, C4<1>, C4<1>;
+L_000001d446094140 .functor OR 1, L_000001d446063130, L_000001d4460d9d00, C4<0>, C4<0>;
+v000001d4460634d0_0 .net *"_ivl_10", 0 0, L_000001d4460630c0;  1 drivers
+v000001d446062e70_0 .net *"_ivl_13", 0 0, L_000001d446093d40;  1 drivers
+v000001d446062f10_0 .net *"_ivl_14", 0 0, L_000001d446063130;  1 drivers
+v000001d4460935c0_0 .net *"_ivl_17", 0 0, L_000001d446093de0;  1 drivers
+v000001d446093ac0_0 .net *"_ivl_19", 0 0, L_000001d446093200;  1 drivers
+v000001d446093a20_0 .net *"_ivl_20", 0 0, L_000001d4460d9c20;  1 drivers
+v000001d446093340_0 .net *"_ivl_23", 0 0, L_000001d4460932a0;  1 drivers
+v000001d446093980_0 .net *"_ivl_24", 0 0, L_000001d4460d9c90;  1 drivers
+v000001d446093b60_0 .net *"_ivl_26", 0 0, L_000001d4460d9d00;  1 drivers
+v000001d4460930c0_0 .net *"_ivl_3", 0 0, L_000001d446093fc0;  1 drivers
+v000001d446093160_0 .net *"_ivl_4", 0 0, L_000001d446063c50;  1 drivers
+v000001d4460938e0_0 .net *"_ivl_7", 0 0, L_000001d446093e80;  1 drivers
+v000001d4460933e0_0 .net *"_ivl_8", 0 0, L_000001d44604ef40;  1 drivers
+o000001d446097228 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001d4460937a0_0 .net "a", 7 0, o000001d446097228;  0 drivers
+o000001d446097258 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001d446093c00_0 .net "b", 7 0, o000001d446097258;  0 drivers
+v000001d446093f20_0 .net "overflow", 0 0, L_000001d446094140;  1 drivers
+v000001d446093480_0 .net "s", 7 0, L_000001d446093ca0;  1 drivers
+L_000001d446093ca0 .arith/sum 8, o000001d446097228, o000001d446097258;
+L_000001d446093fc0 .part o000001d446097228, 7, 1;
+L_000001d446093e80 .part o000001d446097258, 7, 1;
+L_000001d446093d40 .part L_000001d446093ca0, 7, 1;
+L_000001d446093de0 .part o000001d446097228, 7, 1;
+L_000001d446093200 .part o000001d446097258, 7, 1;
+L_000001d4460932a0 .part L_000001d446093ca0, 7, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "overflow.v";

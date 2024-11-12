@@ -1,0 +1,52 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001f9e074eca0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 100 "in";
+    .port_info 1 /OUTPUT 99 "out_both";
+    .port_info 2 /OUTPUT 99 "out_any";
+    .port_info 3 /OUTPUT 100 "out_different";
+o000001f9e0636fd8 .functor BUFZ 100, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000001f9e0603490_0 .net "in", 99 0, o000001f9e0636fd8;  0 drivers
+v000001f9e06030e0_0 .var "out_any", 99 1;
+v000001f9e074ee30_0 .var "out_both", 98 0;
+v000001f9e074eed0_0 .var "out_different", 99 0;
+E_000001f9e06362f0 .event anyedge, v000001f9e0603490_0;
+    .scope S_000001f9e074eca0;
+T_0 ;
+    %wait E_000001f9e06362f0;
+    %load/vec4 v000001f9e0603490_0;
+    %parti/s 99, 0, 2;
+    %load/vec4 v000001f9e0603490_0;
+    %parti/s 99, 1, 2;
+    %and;
+    %store/vec4 v000001f9e074ee30_0, 0, 99;
+    %load/vec4 v000001f9e0603490_0;
+    %parti/s 99, 1, 2;
+    %load/vec4 v000001f9e0603490_0;
+    %parti/s 99, 0, 2;
+    %or;
+    %store/vec4 v000001f9e06030e0_0, 0, 99;
+    %load/vec4 v000001f9e0603490_0;
+    %load/vec4 v000001f9e0603490_0;
+    %parti/s 1, 0, 2;
+    %load/vec4 v000001f9e0603490_0;
+    %parti/s 98, 1, 2;
+    %concat/vec4; draw_concat_vec4
+    %pad/u 100;
+    %xor;
+    %store/vec4 v000001f9e074eed0_0, 0, 100;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "gatesv100.v";

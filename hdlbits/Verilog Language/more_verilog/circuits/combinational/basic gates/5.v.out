@@ -1,0 +1,45 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002b690e02ce0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out_and";
+    .port_info 3 /OUTPUT 1 "out_or";
+    .port_info 4 /OUTPUT 1 "out_xor";
+    .port_info 5 /OUTPUT 1 "out_nand";
+    .port_info 6 /OUTPUT 1 "out_nor";
+    .port_info 7 /OUTPUT 1 "out_xnor";
+    .port_info 8 /OUTPUT 1 "out_anotb";
+o000002b690e36fd8 .functor BUFZ 1, C4<z>; HiZ drive
+o000002b690e37008 .functor BUFZ 1, C4<z>; HiZ drive
+L_000002b690dedde0 .functor AND 1, o000002b690e36fd8, o000002b690e37008, C4<1>, C4<1>;
+L_000002b690de8c80 .functor OR 1, o000002b690e36fd8, o000002b690e37008, C4<0>, C4<0>;
+L_000002b690de9070 .functor XOR 1, o000002b690e36fd8, o000002b690e37008, C4<0>, C4<0>;
+L_000002b690dee0b0 .functor NAND 1, o000002b690e36fd8, o000002b690e37008, C4<1>, C4<1>;
+L_000002b690deeb90 .functor NOR 1, o000002b690e36fd8, o000002b690e37008, C4<0>, C4<0>;
+L_000002b690deedc0 .functor XNOR 1, o000002b690e36fd8, o000002b690e37008, C4<0>, C4<0>;
+L_000002b690e03360 .functor NOT 1, o000002b690e37008, C4<0>, C4<0>, C4<0>;
+L_000002b690e035a0 .functor AND 1, o000002b690e36fd8, L_000002b690e03360, C4<1>, C4<1>;
+v000002b690deeaf0_0 .net *"_ivl_12", 0 0, L_000002b690e03360;  1 drivers
+v000002b690dee010_0 .net "a", 0 0, o000002b690e36fd8;  0 drivers
+v000002b690de8fd0_0 .net "b", 0 0, o000002b690e37008;  0 drivers
+v000002b690de8be0_0 .net "out_and", 0 0, L_000002b690dedde0;  1 drivers
+v000002b690dedd40_0 .net "out_anotb", 0 0, L_000002b690e035a0;  1 drivers
+v000002b690e02e70_0 .net "out_nand", 0 0, L_000002b690dee0b0;  1 drivers
+v000002b690e02f10_0 .net "out_nor", 0 0, L_000002b690deeb90;  1 drivers
+v000002b690e31910_0 .net "out_or", 0 0, L_000002b690de8c80;  1 drivers
+v000002b690e31f50_0 .net "out_xnor", 0 0, L_000002b690deedc0;  1 drivers
+v000002b690e32270_0 .net "out_xor", 0 0, L_000002b690de9070;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "5.v";

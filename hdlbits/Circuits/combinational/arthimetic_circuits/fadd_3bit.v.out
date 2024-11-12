@@ -1,0 +1,103 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002a5effc5ef0 .scope module, "top_module" "top_module" 2 9;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "a";
+    .port_info 1 /INPUT 3 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 3 "cout";
+    .port_info 4 /OUTPUT 3 "sum";
+o000002a5effc7718 .functor BUFZ 3, C4<zzz>; HiZ drive
+v000002a5f00197a0_0 .net "a", 2 0, o000002a5effc7718;  0 drivers
+o000002a5effc7748 .functor BUFZ 3, C4<zzz>; HiZ drive
+v000002a5f0018b20_0 .net "b", 2 0, o000002a5effc7748;  0 drivers
+o000002a5effc70b8 .functor BUFZ 1, C4<z>; HiZ drive
+v000002a5f0019a20_0 .net "cin", 0 0, o000002a5effc70b8;  0 drivers
+v000002a5f0019660_0 .net "cout", 2 0, L_000002a5f0019480;  1 drivers
+v000002a5f0018d00_0 .net "sum", 2 0, L_000002a5f0019520;  1 drivers
+L_000002a5f00193e0 .part o000002a5effc7718, 0, 1;
+L_000002a5f0019c00 .part o000002a5effc7748, 0, 1;
+L_000002a5f0019ac0 .part o000002a5effc7718, 1, 1;
+L_000002a5f00184e0 .part o000002a5effc7748, 1, 1;
+L_000002a5f0019f20 .part o000002a5effc7718, 2, 1;
+L_000002a5f0019de0 .part o000002a5effc7748, 2, 1;
+L_000002a5f0019480 .concat8 [ 1 1 1 0], L_000002a5effbd2a0, L_000002a5effbd3f0, L_000002a5f001ba10;
+L_000002a5f0019520 .concat8 [ 1 1 1 0], L_000002a5effbd1c0, L_000002a5effbd460, L_000002a5f001bd20;
+S_000002a5effc6080 .scope module, "f1" "fadd" 2 15, 2 1 0, S_000002a5effc5ef0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "cout";
+    .port_info 4 /OUTPUT 1 "sum";
+L_000002a5effbd000 .functor AND 1, L_000002a5f00193e0, L_000002a5f0019c00, C4<1>, C4<1>;
+L_000002a5effbcf90 .functor XOR 1, L_000002a5f00193e0, L_000002a5f0019c00, C4<0>, C4<0>;
+L_000002a5effbd380 .functor AND 1, o000002a5effc70b8, L_000002a5effbcf90, C4<1>, C4<1>;
+L_000002a5effbd2a0 .functor OR 1, L_000002a5effbd000, L_000002a5effbd380, C4<0>, C4<0>;
+L_000002a5effbd0e0 .functor XOR 1, L_000002a5f00193e0, L_000002a5f0019c00, C4<0>, C4<0>;
+L_000002a5effbd1c0 .functor XOR 1, L_000002a5effbd0e0, o000002a5effc70b8, C4<0>, C4<0>;
+v000002a5effbbb70_0 .net *"_ivl_0", 0 0, L_000002a5effbd000;  1 drivers
+v000002a5effbb8f0_0 .net *"_ivl_2", 0 0, L_000002a5effbcf90;  1 drivers
+v000002a5effbb490_0 .net *"_ivl_4", 0 0, L_000002a5effbd380;  1 drivers
+v000002a5effbadb0_0 .net *"_ivl_8", 0 0, L_000002a5effbd0e0;  1 drivers
+v000002a5effbb530_0 .net "a", 0 0, L_000002a5f00193e0;  1 drivers
+v000002a5effbaef0_0 .net "b", 0 0, L_000002a5f0019c00;  1 drivers
+v000002a5effbaf90_0 .net "cin", 0 0, o000002a5effc70b8;  alias, 0 drivers
+v000002a5effbb710_0 .net "cout", 0 0, L_000002a5effbd2a0;  1 drivers
+v000002a5effbb7b0_0 .net "sum", 0 0, L_000002a5effbd1c0;  1 drivers
+S_000002a5effc4d60 .scope module, "f2" "fadd" 2 16, 2 1 0, S_000002a5effc5ef0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "cout";
+    .port_info 4 /OUTPUT 1 "sum";
+L_000002a5effbd070 .functor AND 1, L_000002a5f0019ac0, L_000002a5f00184e0, C4<1>, C4<1>;
+L_000002a5effbd150 .functor XOR 1, L_000002a5f0019ac0, L_000002a5f00184e0, C4<0>, C4<0>;
+L_000002a5effbd230 .functor AND 1, o000002a5effc70b8, L_000002a5effbd150, C4<1>, C4<1>;
+L_000002a5effbd3f0 .functor OR 1, L_000002a5effbd070, L_000002a5effbd230, C4<0>, C4<0>;
+L_000002a5effbd4d0 .functor XOR 1, L_000002a5f0019ac0, L_000002a5f00184e0, C4<0>, C4<0>;
+L_000002a5effbd460 .functor XOR 1, L_000002a5effbd4d0, o000002a5effc70b8, C4<0>, C4<0>;
+v000002a5effbb030_0 .net *"_ivl_0", 0 0, L_000002a5effbd070;  1 drivers
+v000002a5effbba30_0 .net *"_ivl_2", 0 0, L_000002a5effbd150;  1 drivers
+v000002a5effbb210_0 .net *"_ivl_4", 0 0, L_000002a5effbd230;  1 drivers
+v000002a5effbb990_0 .net *"_ivl_8", 0 0, L_000002a5effbd4d0;  1 drivers
+v000002a5effbb170_0 .net "a", 0 0, L_000002a5f0019ac0;  1 drivers
+v000002a5effbb5d0_0 .net "b", 0 0, L_000002a5f00184e0;  1 drivers
+v000002a5effbb850_0 .net "cin", 0 0, o000002a5effc70b8;  alias, 0 drivers
+v000002a5f00198e0_0 .net "cout", 0 0, L_000002a5effbd3f0;  1 drivers
+v000002a5f0018940_0 .net "sum", 0 0, L_000002a5effbd460;  1 drivers
+S_000002a5f001a040 .scope module, "f3" "fadd" 2 17, 2 1 0, S_000002a5effc5ef0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "cout";
+    .port_info 4 /OUTPUT 1 "sum";
+L_000002a5effbce40 .functor AND 1, L_000002a5f0019f20, L_000002a5f0019de0, C4<1>, C4<1>;
+L_000002a5f001b540 .functor XOR 1, L_000002a5f0019f20, L_000002a5f0019de0, C4<0>, C4<0>;
+L_000002a5f001ba80 .functor AND 1, o000002a5effc70b8, L_000002a5f001b540, C4<1>, C4<1>;
+L_000002a5f001ba10 .functor OR 1, L_000002a5effbce40, L_000002a5f001ba80, C4<0>, C4<0>;
+L_000002a5f001be00 .functor XOR 1, L_000002a5f0019f20, L_000002a5f0019de0, C4<0>, C4<0>;
+L_000002a5f001bd20 .functor XOR 1, L_000002a5f001be00, o000002a5effc70b8, C4<0>, C4<0>;
+v000002a5f0019020_0 .net *"_ivl_0", 0 0, L_000002a5effbce40;  1 drivers
+v000002a5f0019980_0 .net *"_ivl_2", 0 0, L_000002a5f001b540;  1 drivers
+v000002a5f00192a0_0 .net *"_ivl_4", 0 0, L_000002a5f001ba80;  1 drivers
+v000002a5f0019d40_0 .net *"_ivl_8", 0 0, L_000002a5f001be00;  1 drivers
+v000002a5f0019e80_0 .net "a", 0 0, L_000002a5f0019f20;  1 drivers
+v000002a5f00188a0_0 .net "b", 0 0, L_000002a5f0019de0;  1 drivers
+v000002a5f0019840_0 .net "cin", 0 0, o000002a5effc70b8;  alias, 0 drivers
+v000002a5f0019340_0 .net "cout", 0 0, L_000002a5f001ba10;  1 drivers
+v000002a5f0018580_0 .net "sum", 0 0, L_000002a5f001bd20;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "fadd_3bit.v";

@@ -1,0 +1,64 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000286ced72df0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 255 "in";
+    .port_info 1 /OUTPUT 8 "out";
+v00000286ced73490_0 .var/i "i", 31 0;
+o00000286ceda7008 .functor BUFZ 255, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v00000286ced72f80_0 .net "in", 254 0, o00000286ceda7008;  0 drivers
+v00000286ced73020_0 .var "out", 7 0;
+E_00000286ced580d0 .event anyedge, v00000286ced72f80_0, v00000286ced73020_0;
+    .scope S_00000286ced72df0;
+T_0 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v00000286ced73490_0, 0, 32;
+    %end;
+    .thread T_0;
+    .scope S_00000286ced72df0;
+T_1 ;
+    %wait E_00000286ced580d0;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000286ced73020_0, 0, 8;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v00000286ced73490_0, 0, 32;
+T_1.0 ;
+    %load/vec4 v00000286ced73490_0;
+    %cmpi/s 256, 0, 32;
+    %jmp/0xz T_1.1, 5;
+    %load/vec4 v00000286ced72f80_0;
+    %load/vec4 v00000286ced73490_0;
+    %part/s 1;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %flag_mov 8, 4;
+    %jmp/0 T_1.2, 8;
+    %load/vec4 v00000286ced73020_0;
+    %addi 1, 0, 8;
+    %jmp/1 T_1.3, 8;
+T_1.2 ; End of true expr.
+    %load/vec4 v00000286ced73020_0;
+    %jmp/0 T_1.3, 8;
+ ; End of false expr.
+    %blend;
+T_1.3;
+    %store/vec4 v00000286ced73020_0, 0, 8;
+    %load/vec4 v00000286ced73490_0;
+    %addi 1, 0, 32;
+    %store/vec4 v00000286ced73490_0, 0, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "count_population.v";

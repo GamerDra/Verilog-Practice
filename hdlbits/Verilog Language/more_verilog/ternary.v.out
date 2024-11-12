@@ -1,0 +1,82 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000021505bd2ce0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /INPUT 8 "c";
+    .port_info 3 /INPUT 8 "d";
+    .port_info 4 /OUTPUT 8 "min";
+o0000021505c06f58 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0000021505bd34b0_0 .net "a", 7 0, o0000021505c06f58;  0 drivers
+o0000021505c06f88 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0000021505bbef00_0 .net "b", 7 0, o0000021505c06f88;  0 drivers
+o0000021505c06fb8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0000021505bd2e70_0 .net "c", 7 0, o0000021505c06fb8;  0 drivers
+o0000021505c06fe8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0000021505bd2f10_0 .net "d", 7 0, o0000021505c06fe8;  0 drivers
+v0000021505bd2fb0_0 .var "min", 7 0;
+v0000021505bd3050_0 .var "w1", 7 0;
+v0000021505bbb660_0 .var "w2", 7 0;
+E_0000021505bbc0f0/0 .event anyedge, v0000021505bd34b0_0, v0000021505bbef00_0, v0000021505bd2e70_0, v0000021505bd2f10_0;
+E_0000021505bbc0f0/1 .event anyedge, v0000021505bd3050_0, v0000021505bbb660_0;
+E_0000021505bbc0f0 .event/or E_0000021505bbc0f0/0, E_0000021505bbc0f0/1;
+    .scope S_0000021505bd2ce0;
+T_0 ;
+    %wait E_0000021505bbc0f0;
+    %load/vec4 v0000021505bd34b0_0;
+    %load/vec4 v0000021505bbef00_0;
+    %cmp/u;
+    %flag_mov 8, 5;
+    %jmp/0 T_0.0, 8;
+    %load/vec4 v0000021505bd34b0_0;
+    %jmp/1 T_0.1, 8;
+T_0.0 ; End of true expr.
+    %load/vec4 v0000021505bbef00_0;
+    %jmp/0 T_0.1, 8;
+ ; End of false expr.
+    %blend;
+T_0.1;
+    %store/vec4 v0000021505bd3050_0, 0, 8;
+    %load/vec4 v0000021505bd2e70_0;
+    %load/vec4 v0000021505bd2f10_0;
+    %cmp/u;
+    %flag_mov 8, 5;
+    %jmp/0 T_0.2, 8;
+    %load/vec4 v0000021505bd2e70_0;
+    %jmp/1 T_0.3, 8;
+T_0.2 ; End of true expr.
+    %load/vec4 v0000021505bd2f10_0;
+    %jmp/0 T_0.3, 8;
+ ; End of false expr.
+    %blend;
+T_0.3;
+    %store/vec4 v0000021505bbb660_0, 0, 8;
+    %load/vec4 v0000021505bd3050_0;
+    %load/vec4 v0000021505bbb660_0;
+    %cmp/u;
+    %flag_mov 8, 5;
+    %jmp/0 T_0.4, 8;
+    %load/vec4 v0000021505bd3050_0;
+    %jmp/1 T_0.5, 8;
+T_0.4 ; End of true expr.
+    %load/vec4 v0000021505bbb660_0;
+    %jmp/0 T_0.5, 8;
+ ; End of false expr.
+    %blend;
+T_0.5;
+    %store/vec4 v0000021505bd2fb0_0, 0, 8;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "ternary.v";

@@ -1,0 +1,97 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000023218242df0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /OUTPUT 3 "out_both";
+    .port_info 2 /OUTPUT 3 "out_any";
+    .port_info 3 /OUTPUT 4 "out_different";
+o0000023218276fd8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v00000232182434b0_0 .net "in", 3 0, o0000023218276fd8;  0 drivers
+v000002321838bd20_0 .var "out_any", 3 1;
+v000002321838bdc0_0 .var "out_both", 2 0;
+v0000023218242f80_0 .var "out_different", 3 0;
+E_00000232183893d0 .event anyedge, v00000232182434b0_0;
+    .scope S_0000023218242df0;
+T_0 ;
+    %wait E_00000232183893d0;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 3, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 2, 3;
+    %and;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000002321838bdc0_0, 4, 1;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 2, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 1, 2;
+    %and;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000002321838bdc0_0, 4, 1;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 1, 2;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 0, 2;
+    %and;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000002321838bdc0_0, 4, 1;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 3, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 2, 3;
+    %or;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 2, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 1, 2;
+    %or;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 1, 2;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 0, 2;
+    %or;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v000002321838bd20_0, 0, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 0, 2;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 3, 3;
+    %xor;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 3, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 2, 3;
+    %xor;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 2, 3;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 1, 2;
+    %xor;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 1, 2;
+    %load/vec4 v00000232182434b0_0;
+    %parti/s 1, 0, 2;
+    %xor;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0000023218242f80_0, 0, 4;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "gatesv.v";
